@@ -16,7 +16,7 @@ public class UnitManager : MonoBehaviour
     private void Start()
     {
         // Set the initial spawn point to (0, 0, 0) or any other desired position
-        StartCoroutine(SpawnEnemies());
+        //StartCoroutine(SpawnEnemies());
     }
 
     IEnumerator SpawnEnemies()

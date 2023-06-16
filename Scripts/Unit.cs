@@ -41,15 +41,17 @@ public class Unit : MonoBehaviour
             Destroy(gameObject);
         }
 
-        if (isPlacing)
+        Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
+        RaycastHit hit;
+        if (Physics.Raycast(mainCamera.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, groundLayer))
         {
-            Ray ray = mainCamera.ScreenPointToRay(Input.mousePosition);
-            RaycastHit hit;
-            if (Physics.Raycast(mainCamera.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity, groundLayer))
-            {
-                transform.position = new Vector3(hit.point.x, transform.localScale.y / 2, hit.point.z);
-                //transform.position.y = transform.localScale.y / 2;
-            }
+            endPos = new Vector3(hit.point.x, transform.localScale.y / 2, hit.point.z);
+            //transform.position.y = transform.localScale.y / 2;
+        }
+
+        /*if (isPlacing)
+        {
+            
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -88,7 +90,7 @@ public class Unit : MonoBehaviour
             Debug.LogWarning("Moving");
             transform.position = Vector3.MoveTowards(transform.position, endPos, speed * Time.deltaTime);
             //transform.position = Vector3.Slerp(transform.position, uManager.endPathPosition.position, speed * Time.deltaTime);
-        }
+        }*/
 
     }
 

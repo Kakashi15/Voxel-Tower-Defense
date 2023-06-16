@@ -8,11 +8,12 @@ public class UnitHolder : MonoBehaviour
     public int amount;
     UnitManager uManager;
     TextMeshProUGUI textValue;
-
+    ObjectSelector objectSelector;
     void Start()
     {
         textValue = GetComponentInChildren<TextMeshProUGUI>();
         uManager = FindObjectOfType<UnitManager>();
+        objectSelector = FindObjectOfType<ObjectSelector>();
     }
 
     // Update is called once per frame
@@ -26,6 +27,6 @@ public class UnitHolder : MonoBehaviour
         // Called by UI button click to spawn the unit at the designated spawn point
 
         GameObject unitInstance = Instantiate(unit, uManager.spawnPoint.position, Quaternion.identity);
-        unitInstance.GetComponent<Unit>().StartPlacing();
+        objectSelector.selectableObjects.Add(unitInstance.GetComponent<UnitController>());
     }
 }
