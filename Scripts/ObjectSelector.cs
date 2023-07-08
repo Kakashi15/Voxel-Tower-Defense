@@ -52,7 +52,7 @@ public class ObjectSelector : MonoBehaviour
         if (objectsSelected && Input.GetMouseButtonDown(1))
         {
             RaycastHit hit;
-            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, 100))
+            if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit, Mathf.Infinity))
             {
                 //Selectable clickedSelectable = hit.transform.GetComponent<Selectable>();
                 Tree tree = hit.transform.GetComponent<Tree>();
@@ -68,7 +68,7 @@ public class ObjectSelector : MonoBehaviour
                 {
                     // Get the position of the clicked object
                     RaycastHit hit2;
-                    if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit2, 100))
+                    if (Physics.Raycast(Camera.main.ScreenPointToRay(Input.mousePosition), out hit2, Mathf.Infinity))
                     {
                         // Check if the clicked object is selectable and is different from the current object
                         Selectable clickedSelectable = hit2.transform.GetComponent<Selectable>();

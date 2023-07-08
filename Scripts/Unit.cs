@@ -49,9 +49,9 @@ public class Unit : MonoBehaviour
             //transform.position.y = transform.localScale.y / 2;
         }
 
-        /*if (isPlacing)
+        if (isPlacing)
         {
-            
+
         }
 
         if (Input.GetMouseButtonDown(0))
@@ -90,7 +90,7 @@ public class Unit : MonoBehaviour
             Debug.LogWarning("Moving");
             transform.position = Vector3.MoveTowards(transform.position, endPos, speed * Time.deltaTime);
             //transform.position = Vector3.Slerp(transform.position, uManager.endPathPosition.position, speed * Time.deltaTime);
-        }*/
+        }
 
     }
 
